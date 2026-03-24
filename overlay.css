@@ -1,0 +1,97 @@
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+#overlay-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+    border: 1px solid #ccc;
+  
+}
+
+.overlay-pokemon-container {
+  background-color: rgb(94, 18, 18);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+}
+
+.overlay-card-name-id {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  gap: 20px;
+  border-bottom: 1px solid #ccc;
+  background-color: rgb(68, 64, 64);
+}
+
+.overlay-switch-button {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.overlay-btn {
+  background-color: rgb(68, 64, 64);
+  width: 50px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.overlay-card-pokemon-img {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 200px;
+  padding-bottom: 16px;
+  padding-top: 16px;
+  border-bottom: 1px solid lightslategray;
+}
+
+.overlay-sprites-container {
+  display: flex;
+  background-color: rgb(68, 64, 64);
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-sprites-container img {
+  height: 150px;
+  width: 100px;
+}
+
+.overlay-pokemon-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
