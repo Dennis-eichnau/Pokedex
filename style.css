@@ -60,7 +60,7 @@ main > card {
 }
 
 .card {
-  background-color: #f0f0f0;
+  background-color: rgb(194, 100, 100);
   display: grid;
   flex-direction: column;
   border-radius: 5px;
@@ -90,6 +90,8 @@ main > card {
 .card-pokemon-img:hover{
   animation: shake 0.9s;
   animation-iteration-count: infinite;
+  border-radius: 200px;
+  
 }
 
 .fokus-img{
@@ -121,6 +123,7 @@ main > card {
   padding-top: 16px;
   padding-bottom: 16px;
   background-color: rgb(194, 100, 100);
+  
   
 
 }
