@@ -68,7 +68,7 @@
   color: white;
 }
 
-/* --- NAVIGATION BUTTONS STYLING --- */
+
 
 .overlay-switch-button {
   display: flex;
@@ -81,13 +81,13 @@
 
 .overlay-btn {
   background-color: rgba(255, 255, 255, 0.1);
-  width: 80px;  /* Schön breit für Daumen und Maus */
-  height: 50px; /* Deutlich höher */
+  width: 80px;  
+  height: 50px; 
   cursor: pointer;
   color: white;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 10px;
-  font-size: 32px; /* Pfeile sind jetzt riesig */
+  font-size: 32px; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,11 +98,11 @@
   background-color: white;
   color: rgb(112, 109, 109);
   border-color: white;
-  transform: scale(1.1); /* Button ploppt leicht hervor */
+  transform: scale(1.1); 
 }
 
 .overlay-btn:active {
-  transform: scale(0.95); /* Klick-Effekt */
+  transform: scale(0.95); 
 }
 
 .overlay-card-pokemon-img {
