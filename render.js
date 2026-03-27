@@ -8,7 +8,7 @@ function renderPokemon() {
 }
 
 function renderOverlayPokemon(index) {
-  let currentPokemon = document.getElementById("overlay-content");
+  const currentPokemon = document.getElementById("overlay-content");
   currentPokemon.innerHTML = getOverlayPokemonTemplate(index);
 }
 

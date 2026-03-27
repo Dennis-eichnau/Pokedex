@@ -18,18 +18,19 @@ function getPokemonTemplate(index) {
 }
 
 function getOverlayPokemonTemplate(index) {
+  const currentPokemon = isSearchActive ? filteredPokemon[index] : allPokemon[index];
+
   return `
     <div onclick="stopPropagation(event)" class="overlay-pokemon-container">
-      
       <button class="overlay-close-btn" onclick="pokemonOverlayOff()">X</button>
       
       <div class="overlay-card-name-id">
-        <span>#${allPokemon[index].id}</span>
-        <h3>${allPokemon[index].name}</h3>
+        <span>#${currentPokemon.id}</span>
+        <h3>${currentPokemon.name}</h3>
       </div>
 
-      <div class="overlay-card-pokemon-img ${allPokemon[index].types[0].type.name}">
-        <img src="${allPokemon[index].sprites.other.dream_world.front_default}">
+      <div class="overlay-card-pokemon-img ${currentPokemon.types[0].type.name}">
+        <img src="${currentPokemon.sprites.other.dream_world.front_default}">
       </div>
 
       <div class="overlay-switch-button">
@@ -38,17 +39,9 @@ function getOverlayPokemonTemplate(index) {
       </div>
 
       <div class="overlay-pokemon-description">
-        <span> Height: ${allPokemon[index].height} m</span>
-        <span> Weight : ${allPokemon[index].weight} kg</span>
+        <span>Height: ${currentPokemon.height} m</span>
+        <span>Weight: ${currentPokemon.weight} kg</span>
       </div>
-
-      <div class="overlay-sprites-container">
-        <img src="${allPokemon[index].sprites.back_default}">
-        <img src="${allPokemon[index].sprites.front_default}">
-        <img src="${allPokemon[index].sprites.back_shiny}">
-        <img src="${allPokemon[index].sprites.front_shiny}">
-      </div>
-
     </div>
   `;
 }
@@ -75,5 +68,11 @@ function getFilteredPokemonTemplate(index) {
 function getNotFilteredPokemonTemplate() {
   return `
     <h1 class="no-found"> No Pokemon found !!!</h1>
+  `;
+}
+
+function getSecondTypeTemplate(typeName) {
+  return `
+    <img class="${typeName}" src="./assets/icons-type/${typeName}.svg"> 
   `;
 }
