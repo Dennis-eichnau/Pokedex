@@ -34,8 +34,8 @@ function getOverlayPokemonTemplate(index) {
       </div>
 
       <div class="overlay-switch-button">
-        <button onclick="currentOverlayRight(${index - 1})" class="overlay-btn"><</button>
-        <button onclick="currentOverlayRight(${index + 1})" class="overlay-btn">></button>
+        <button onclick="currentOverlayRight(${index - 1})" class="overlay-btn">&lsaquo;</button>
+        <button onclick="currentOverlayRight(${index + 1})" class="overlay-btn">&rsaquo;</button>
       </div>
 
       <div class="overlay-pokemon-description">

@@ -184,3 +184,30 @@ input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
+
+* {
+    box-sizing: border-box !important;
+}
+@media (min-width: 1202px) {
+    header, 
+    main, 
+    .btn-next-pokemon {
+        width: 100% !important;
+        max-width: none !important;
+        padding-left: calc((100% - 1200px) / 2) !important;
+        padding-right: calc((100% - 1200px) / 2) !important;
+    }
+
+    main {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important; 
+        gap: 20px !important; 
+        align-content: flex-start !important;
+    }
+    .card {
+        flex-grow: 0 !important; 
+        flex-shrink: 0 !important;
+        width: 250px; 
+    }
+}

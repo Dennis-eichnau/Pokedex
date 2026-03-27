@@ -6,7 +6,7 @@
 }
 
 #overlay::backdrop {
-  background-color: rgba(0, 0, 0, 0.95);
+  background-color: rgba(0, 0, 0, 0.9);
   cursor: pointer;
 }
 
@@ -18,8 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  border-radius: 10px;
 }
 
 .overlay-pokemon-container {
@@ -28,28 +27,33 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 500px;
+  width: 450px;
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .overlay-close-btn {
   position: absolute;
-  top: 10px;
-  right: 15px;
-  background: none;
-  border: none;
-  color: #ccc;
-  font-size: 24px;
+  top: 15px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
   font-weight: bold;
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
   z-index: 10;
 }
 
 .overlay-close-btn:hover {
-  color: white;
+  background-color: #ff4444;
+  border-color: #ff4444;
 }
 
 .overlay-card-name-id {
@@ -58,37 +62,56 @@
   width: 100%;
   justify-content: center;
   gap: 20px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   background-color: rgb(112, 109, 109);
-  padding: 10px 0;
+  padding: 20px 0;
+  color: white;
 }
+
+/* --- NAVIGATION BUTTONS STYLING --- */
 
 .overlay-switch-button {
   display: flex;
   width: 100%;
   justify-content: space-around;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ccc;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .overlay-btn {
-  background-color: rgb(112, 109, 109);
-  width: 50px;
-  height: 24px;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 80px;  /* Schön breit für Daumen und Maus */
+  height: 50px; /* Deutlich höher */
   cursor: pointer;
   color: white;
-  border: 1px solid #777;
-  border-radius: 4px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  font-size: 32px; /* Pfeile sind jetzt riesig */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.overlay-btn:hover {
+  background-color: white;
+  color: rgb(112, 109, 109);
+  border-color: white;
+  transform: scale(1.1); /* Button ploppt leicht hervor */
+}
+
+.overlay-btn:active {
+  transform: scale(0.95); /* Klick-Effekt */
 }
 
 .overlay-card-pokemon-img {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 250px;
+  height: 280px;
   padding: 20px 0;
-  border-bottom: 1px solid lightslategray;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .overlay-card-pokemon-img img {
@@ -102,8 +125,9 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 20px 0;
+  padding: 25px 0;
   background-color: rgb(112, 109, 109);
   color: white;
-  font-size: 18px;
+  font-size: 20px;
+  gap: 10px;
 }
