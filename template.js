@@ -67,7 +67,7 @@ function getFilteredPokemonTemplate(index) {
 
 function getNotFilteredPokemonTemplate() {
   return `
-    <h1 class="no-found"> No Pokemon found !!!</h1>
+    <h1 class="no-found">No Pokemon found !!!</h1>
   `;
 }
 

@@ -1,4 +1,4 @@
-/* --- Desktop & Tablets (bis 1350px) --- */
+
 @media (max-width: 1350px) {
   main {
     display: flex;
@@ -17,7 +17,6 @@
   }
 }
 
-/* --- Phablets (bis 670px) --- */
 @media (max-width: 670px) {
   #overlay-content {
     padding: 0;
@@ -27,7 +26,6 @@
   }
 }
 
-/* --- Mobile Standard (bis 550px) --- */
 @media (max-width: 550px) {
   .overlay-pokemon-container {
     width: 90%;
@@ -43,14 +41,12 @@
   }
 }
 
-/* --- Mobile Small (bis 430px) --- */
 @media (max-width: 430px) {
   .no-found {
     font-size: 20px;
   }
 }
 
-/* --- Mobile Extra Small (320px) --- */
 @media (max-width: 330px) {
   .overlay-pokemon-container {
     width: 290px;

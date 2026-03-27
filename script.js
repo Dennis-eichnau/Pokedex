@@ -55,37 +55,29 @@ function pokemonOverlayOff() {
 }
 
 function searchPokemon() {
-  const POKEMON_CONTAINER = document.getElementById("pokemon");
-  const searchInput = document.getElementById("search").value.toLowerCase();
-  const popup = document.getElementById("myPopup");
+  const input = document.getElementById("search").value.toLowerCase();
+  isSearchActive = input.length >= 3;
+  
+  document.getElementById("pokemon").innerHTML = "";
 
-  if (searchInput.length >= 3) {
-    isSearchActive = true;
-    POKEMON_CONTAINER.innerHTML = "";
-    filteredPokemon = allPokemon.filter((pokemon) => {
-      return pokemon.name.includes(searchInput);
-    });
+  if (isSearchActive) {
+    filteredPokemon = allPokemon.filter(p => p.name.includes(input));
     renderFilteredPokemon(filteredPokemon);
-    popup.classList.remove("show");
-    btnDnone();
-  } else if (searchInput.length > 0 && searchInput.length < 3) {
-    isSearchActive = false;
-    POKEMON_CONTAINER.innerHTML = "";
-    renderPokemon();
-    popup.classList.add("show");
-    btnBlock();
   } else {
-    isSearchActive = false;
-    POKEMON_CONTAINER.innerHTML = "";
     renderPokemon();
-    popup.classList.remove("show");
-    btnBlock();
   }
+
+  toggleSearchUI(input.length);
+}
+
+function toggleSearchUI(len) {
+  const popup = document.getElementById("myPopup");
+  (len > 0 && len < 3) ? popup.classList.add("show") : popup.classList.remove("show");
+  isSearchActive ? btnDnone() : btnBlock();
 }
 
 async function loadNextPokemon() {
-  const POKEMON_CONTAINER = document.getElementById("pokemon");
-  POKEMON_CONTAINER.innerHTML = "";
+  document.getElementById("pokemon").innerHTML = "";
   fetchPokemonList();
   disabledLoadingSpinner();
 }
@@ -93,9 +85,7 @@ async function loadNextPokemon() {
 function currentOverlayRight(index) {
   const currentList = isSearchActive ? filteredPokemon : allPokemon;
   const listLength = currentList.length;
-
   index = (index + listLength) % listLength;
-
   renderOverlayPokemon(index);
 }
 
@@ -112,16 +102,13 @@ function disabledLoadingSpinner() {
 }
 
 function popupSearchInput() {
-  const popup = document.getElementById("myPopup");
-  popup.classList.add("show");
+  document.getElementById("myPopup").classList.add("show");
 }
 
 function btnDnone() {
-  const button = document.getElementById("btn");
-  button.classList.add("d_none");
+  document.getElementById("btn").classList.add("d_none");
 }
 
 function btnBlock() {
-  const button = document.getElementById("btn");
-  button.classList.remove("d_none");
+  document.getElementById("btn").classList.remove("d_none");
 }
