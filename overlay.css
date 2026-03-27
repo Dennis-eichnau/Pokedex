@@ -1,16 +1,12 @@
 #overlay {
-  position: fixed;
-  display: none;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  align-items: center;
-  justify-content: center;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  outline: none;
+}
+
+#overlay::backdrop {
   background-color: rgba(0, 0, 0, 0.95);
-  z-index: 2;
   cursor: pointer;
 }
 
@@ -34,6 +30,27 @@
   justify-content: center;
   align-items: center;
   width: 500px;
+  /* Erlaubt absolute Positionierung des Buttons darin */
+  position: relative; 
+}
+
+/* STYLING FÜR DEN SCHLIESS-BUTTON */
+.overlay-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  z-index: 10;
+}
+
+.overlay-close-btn:hover {
+  color: white;
 }
 
 .overlay-card-name-id {
@@ -95,4 +112,3 @@
   padding-bottom: 20px;
   border-bottom: 1px solid #ccc;
 }
-

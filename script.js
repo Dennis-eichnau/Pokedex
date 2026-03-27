@@ -4,7 +4,7 @@ let allPokemon = [];
 let filteredPokemon = [];
 
 async function init() {
-  loadingSpinner()
+  loadingSpinner();
   await fetchPokemonList(); 
 }
 
@@ -13,7 +13,7 @@ async function fetchPokemonList() {
   let reseponseAsJson = await response.json();
   getPokemonForList(reseponseAsJson);
   nextPokemonUrl = reseponseAsJson.next;
-  loadingSpinner()
+  loadingSpinner();
 }
 
 async function getPokemonForList(pokeList) {
@@ -22,17 +22,13 @@ async function getPokemonForList(pokeList) {
 }
 
 async function getSinglePokemonData(pokemonList) {
-  for (
-    let pokemonIndex = 0;
-    pokemonIndex < pokemonList.length;
-    pokemonIndex++
-  ) {
+  for (let pokemonIndex = 0; pokemonIndex < pokemonList.length; pokemonIndex++) {
     const RESPONSE = await fetch(pokemonList[pokemonIndex].url);
     const SINGLE_POKEMON = await RESPONSE.json();
     allPokemon.push(SINGLE_POKEMON);
   }
   renderPokemon();
-  disabledLoadingSpinner()
+  disabledLoadingSpinner();
 }
 
 function checkSecondType(index) {
@@ -44,45 +40,60 @@ function checkSecondType(index) {
 }
 
 function pokemonOverlayOn(index) {
-  document.getElementById("overlay").style.display = "flex";
-  document.getElementById("overlay-content").style.display = "flex";
+  const dialog = document.getElementById("overlay");
   renderOverlayPokemon(index);
+  dialog.showModal();
   document.getElementById("body").classList.add("no-scroll");
 }
 
 function pokemonOverlayOff() {
-  document.getElementById("overlay").style.display = "none";
-  document.getElementById("overlay-content").style.display = "none";
+  const dialog = document.getElementById("overlay");
+  dialog.close();
   document.getElementById("body").classList.remove("no-scroll");
 }
 
 function searchPokemon() {
   const POKEMON_CONTAINER = document.getElementById("pokemon");
-    POKEMON_CONTAINER.innerHTML = "";
   let searchInput = document.getElementById("search").value.toLowerCase();
-  if (searchInput.length >= 2) {
-    filteredPokemon = allPokemon.filter((pokemon) => {return pokemon.name.includes(searchInput);});
+  const popup = document.getElementById("myPopup");
+
+  if (searchInput.length >= 3) {
+    POKEMON_CONTAINER.innerHTML = "";
+    filteredPokemon = allPokemon.filter((pokemon) => {
+      return pokemon.name.includes(searchInput);
+    });
     renderFilteredPokemon(filteredPokemon);
-    document.getElementById("myPopup").classList.add("d_none")
-    btnDnone()
-    }else {
-    renderPokemon();
-    popupSearchInput()
-    btnBlock()
+    
+    popup.classList.remove("show"); 
+    btnDnone(); 
+  } 
+  else if (searchInput.length > 0 && searchInput.length < 3) {
+    POKEMON_CONTAINER.innerHTML = "";
+    renderPokemon(); 
+    
+    popup.classList.add("show"); 
+    btnBlock(); 
+  } 
+  else {
+    // Hier greift die Logik, wenn das Feld wieder komplett leer ist (0 Buchstaben)
+    POKEMON_CONTAINER.innerHTML = "";
+    renderPokemon(); 
+    
+    popup.classList.remove("show"); 
+    btnBlock(); 
   }
 }
 
 async function loadNextPokemon() {
-  nextPokemonUrl;
   const POKEMON_CONTAINER = document.getElementById("pokemon");
   POKEMON_CONTAINER.innerHTML = "";
   fetchPokemonList();
-  disabledLoadingSpinner()
+  disabledLoadingSpinner();
 }
 
 function currentOverlayRight(index) {
-  indexAll = allPokemon.length;
-  index = (index + indexAll) % indexAll
+  let indexAll = allPokemon.length;
+  index = (index + indexAll) % indexAll;
   renderOverlayPokemon(index);
 }
 
@@ -91,11 +102,11 @@ function stopPropagation(event) {
 }
 
 function loadingSpinner() {
- document.getElementById("loader").style.display = "flex"
+  document.getElementById("loader").style.display = "flex";
 }
 
-function disabledLoadingSpinner(){
-document.getElementById("loader").style.display = "none"
+function disabledLoadingSpinner() {
+  document.getElementById("loader").style.display = "none";
 }
 
 function popupSearchInput() {
@@ -103,12 +114,12 @@ function popupSearchInput() {
   popup.classList.add("show");
 }
 
-function btnDnone(change) {
-  const button = document.getElementById("btn")
-  button.classList.add("d_none")
+function btnDnone() {
+  const button = document.getElementById("btn");
+  button.classList.add("d_none");
 }
 
 function btnBlock() {
-  const button = document.getElementById("btn")
-  button.classList.remove("d_none")
+  const button = document.getElementById("btn");
+  button.classList.remove("d_none"); 
 }
